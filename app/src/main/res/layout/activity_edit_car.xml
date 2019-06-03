@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.EditCarActivity"
+        android:background="#FFFFFFFF">
+
+    <TextView
+            android:text="titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleTextView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:textSize="26sp"
+            android:textColor="#039EB3"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.04000002"
+            android:typeface="monospace" app:layout_constraintHorizontal_bias="0.177"
+            android:foreground="@android:drawable/divider_horizontal_textfield"
+            android:foregroundGravity="fill_horizontal|bottom"/>
+    <TextView
+            android:text="carIdLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/colorDivider"
+            android:id="@+id/carIdLabel"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView" android:visibility="invisible"
+            android:typeface="sans"/>
+    <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:id="@+id/alertDialogBodyTypeButton"
+            android:background="@android:drawable/editbox_background"
+            android:drawableBottom="@android:drawable/divider_horizontal_dim_dark"
+            android:foreground="@mipmap/ic_list"
+            android:gravity="right" android:foregroundGravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/bodyTypeTextInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/bodyTypeTextInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/bodyTypeTextInputLayout"
+            app:layout_constraintVertical_bias="0.75"
+            android:shadowColor="@color/colorAccent" android:shadowDx="10" android:shadowDy="10"
+            android:shadowRadius="5"/>
+    <Button
+            android:layout_width="199dp"
+            android:layout_height="54dp"
+            android:id="@+id/saveButton" app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="onSaveButtonTap" android:textSize="24sp"
+            android:clickable="true"
+            android:lines="1"
+            android:typeface="sans" android:text="Сохранить"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="48dp" android:layout_marginEnd="32dp" android:layout_marginRight="32dp"
+            android:background="@android:color/background_light" android:drawableRight="@mipmap/ic_apply_arr"
+            android:textCursorDrawable="@color/colorAccent" android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/yearTextInputLayout"
+            app:layout_constraintVertical_bias="1.0"/>
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_car"
+            android:id="@+id/carIconImageView"
+            app:layout_constraintEnd_toStartOf="@+id/modelTextInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/modelTextInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/modelTextInputLayout" app:layout_constraintVertical_bias="0.26"
+            android:layout_marginRight="8dp" android:layout_marginEnd="8dp"/>
+
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_flag"
+            android:id="@+id/flagIconImageView" app:layout_constraintEnd_toStartOf="@+id/producerTextInputLayout"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/producerTextInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/producerTextInputLayout" app:layout_constraintVertical_bias="0.26"/>
+    <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp" app:srcCompat="@mipmap/ic_watch"
+            android:id="@+id/timeIconImageView"
+            app:layout_constraintTop_toTopOf="@+id/yearTextInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/yearTextInputLayout"
+            app:layout_constraintEnd_toStartOf="@+id/yearTextInputLayout" android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/modelTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="96dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.105"
+    >
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/carModelEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Марка, модель"
+                android:textSize="16sp" android:singleLine="true" android:textAllCaps="false"
+                android:typeface="monospace" android:drawablePadding="10dp"
+                android:enabled="true" android:lines="1" android:maxLength="30"
+                android:textStyle="bold" android:textColor="@color/colorPrimaryText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/producerTextInputLayout"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/modelTextInputLayout"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:layout_constraintEnd_toEndOf="@+id/modelTextInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/modelTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/carProducerEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Страна"
+                android:textSize="16dp" android:singleLine="true"
+                android:typeface="monospace" android:drawablePadding="10dp"
+                android:enabled="true" android:lines="1" android:maxLength="20" android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/yearTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="100dp"
+            android:layout_height="62dp"
+            app:counterMaxLength="4"
+            app:errorEnabled="false"
+            app:errorTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:hintEnabled="true" app:hintAnimationEnabled="true"
+            android:hint="Год"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/bodyTypeTextInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/bodyTypeTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/carYearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp" android:singleLine="true"
+                android:typeface="monospace" android:drawablePadding="10dp"
+                android:enabled="true" android:lines="1" android:maxLength="4" android:inputType="number"
+                android:gravity="left|center_vertical" android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bodyTypeTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="150dp"
+            android:layout_height="59dp"
+            app:counterEnabled="false"
+            app:counterMaxLength="15"
+            app:helperTextEnabled="true"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toBottomOf="@+id/producerTextInputLayout" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.322">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/carBodyTypeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:textSize="16sp" android:singleLine="true"
+                android:typeface="monospace"
+                android:enabled="false" android:lines="1" android:maxLength="15"
+                android:textStyle="bold" android:hint="Кузов" android:textColor="@color/colorPrimaryText"
+                android:gravity="left|center_vertical"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="92dp"
+            android:layout_height="82dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/carClassCardView"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toEndOf="@+id/bodyTypeTextInputLayout" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintTop_toTopOf="@+id/bodyTypeTextInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/bodyTypeTextInputLayout">
+        <TextView
+                android:text="Класс"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/carClassLabel" android:layout_gravity="center_horizontal|top"
+                android:textColor="#959595"
+                android:textSize="14sp"
+                android:layout_margin="5dp"/>
+        <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/carClassTextView"
+                android:textSize="32sp" android:typeface="sans"
+                android:textColor="@color/colorPrimaryText"
+                app:fontFamily="monospace" android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="30dp" android:background="@android:drawable/editbox_background_normal"
+                android:gravity="right"/>
+        <Spinner
+                android:layout_width="45dp"
+                android:layout_height="52dp"
+                android:id="@+id/classCarSpinner"
+                android:dropDownWidth="30dp" android:spinnerMode="dropdown"
+                android:isScrollContainer="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:foreground="@mipmap/ic_list"
+                android:layout_gravity="bottom|left" android:gravity="top|left"/>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
