@@ -2,6 +2,8 @@ package com.example.car_list_new.activity
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
@@ -16,7 +18,7 @@ import java.util.*
 class EditCarActivity : AppCompatActivity() {
 
     private var editedCar: Car? = null
-    lateinit var option: Spinner
+    private lateinit var option: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,9 @@ class EditCarActivity : AppCompatActivity() {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
                 carClassTextView.text = (adapterView.getItemAtPosition(i)).toString()
             }
-            override fun onNothingSelected(adapterView: AdapterView<*>) {}
+            override fun onNothingSelected(adapterView: AdapterView<*>) {
+
+            }
         }
         option.adapter = adapter
 
@@ -41,21 +45,25 @@ class EditCarActivity : AppCompatActivity() {
         editedCar = car
 
         if (car == null) {
-            titleTextView.text = "Создание автомобиля"
             carIdLabel.text = (UUID.randomUUID().toString())
         } else {
-            titleTextView.text = "Изменение автомобиля"
             carIdLabel.text= car.id
             carModelEditText.setText(car.model)
             carYearEditText.setText(car.year)
             carProducerEditText.setText(car.producer)
-            carClassTextView.setText(car.`class`)
+            carClassTextView.text = car.`class`
             carBodyTypeEditText.setText(car.bodyType)
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_edit_car, menu)
+        return true
+    }
+
     private fun showDialog(){
-        val array = arrayOf("Седан","Хэтчбэк","Внедорожник","Кроссовер","Грузовик")
+        lateinit var array: Array<String>
+        array.copyOf(R.array.car_body_types)
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Выберите тип кузова")
         builder.setItems(array) { _, which ->
@@ -77,7 +85,7 @@ class EditCarActivity : AppCompatActivity() {
         )
     }
 
-    fun onSaveButtonTap(view: View) {
+    fun onSaveButtonTap(menuItem: MenuItem) {
         if (carModelEditText.text!!.isNotBlank() &&
             carYearEditText.text!!.isNotBlank() &&
             carProducerEditText.text!!.isNotBlank() &&
@@ -87,6 +95,6 @@ class EditCarActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_CAR, car)
             setResult(Activity.RESULT_OK, intent)
             finish()
-        } else Toast.makeText(this, "Need to fill all plains", Toast.LENGTH_LONG).show()
+        } else Toast.makeText(this, "Необходимо заполнить все поля", Toast.LENGTH_LONG).show()
     }
 }

@@ -9,12 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
+    companion object {
+        const val BG_RADIUS_DP = 4
+        const val BG_MARGIN_DP = 2
+    }
+
     private val deleteIcon = ContextCompat.getDrawable(context, android.R.drawable.ic_input_delete)
     private val intrinsicWidth = deleteIcon?.intrinsicWidth ?: 0
     private val intrinsicHeight = deleteIcon?.intrinsicHeight ?: 0
-    private val background = ColorDrawable()
     private val backgroundColor = Color.parseColor("#f44336")
     private val clearPaint = Paint().apply { xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR) }
+    private val bgRect = RectF()
+    private val bgPaint = Paint().apply { color = backgroundColor}
 
     override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
         return false
@@ -22,8 +28,7 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleC
 
     override fun onChildDraw(
         c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
-        dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean
-    ) {
+        dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
 
         val itemView = viewHolder.itemView
         val itemHeight = itemView.bottom - itemView.top
@@ -35,9 +40,11 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleC
             return
         }
 
-        background.color = backgroundColor
-        background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
-        background.draw(c)
+        val radiusPx = BG_RADIUS_DP.px.toFloat()
+        val marginPx = BG_MARGIN_DP.px.toFloat()
+        bgRect.set(itemView.right.toFloat() + dX - radiusPx, itemView.top.toFloat(),
+            itemView.right.toFloat() - marginPx, itemView.bottom.toFloat())
+        c.drawRoundRect(bgRect, radiusPx, radiusPx, bgPaint)
 
         val deleteIconTop = itemView.top + (itemHeight - intrinsicHeight) / 2
         val deleteIconMargin = (itemHeight - intrinsicHeight) / 2

@@ -7,7 +7,7 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CarStorage(val filePath: String) {
+class CarStorage(private val filePath: String) {
 
     private val gson = Gson()
     var items = loadCars()
@@ -28,20 +28,22 @@ class CarStorage(val filePath: String) {
         save()
     }
 
-    fun clear() {
-        items.clear()
-        save()
-    }
-
     fun setDefault() {
         items = getDefaultCars()
         save()
     }
 
     fun sortList() {
-        val a: List<Car> = items.sortedWith(compareBy({it.model}))
+        val sortedList: List<Car> = items.sortedWith(compareBy {it.model})
         items.clear()
-        items.addAll(a)
+        items.addAll(sortedList)
+        save()
+    }
+
+    fun sortListDate() {
+        val sortedList: List<Car> = items.sortedWith(compareBy {it.year})
+        items.clear()
+        items.addAll(sortedList)
         save()
     }
 
@@ -71,7 +73,13 @@ class CarStorage(val filePath: String) {
             Car(UUID.randomUUID().toString(), "Toyota Camry", "2009", "Япония", "D", "Седан"),
             Car(UUID.randomUUID().toString(), "Opel Corsa", "2013", "Германия", "B", "Седан"),
             Car(UUID.randomUUID().toString(), "BMW X6", "2017", "Германия", "S", "Внедорожник"),
-            Car(UUID.randomUUID().toString(), "Dodge Challendger", "2010", "Америка", "S", "Седан")
+            Car(UUID.randomUUID().toString(), "Dodge Challendger", "2010", "Америка", "S", "Седан"),
+            Car(UUID.randomUUID().toString(), "Lada Granta", "2014", "Россия", "A", "Хэтчбэк"),
+            Car(UUID.randomUUID().toString(), "Toyota Corolla", "1997", "Япония", "B", "Седан"),
+            Car(UUID.randomUUID().toString(), "Volkswagen Passat ", "1999", "Германия", "C", "Кроссовер"),
+            Car(UUID.randomUUID().toString(), "Toyota Camry", "2009", "Япония", "D", "Седан"),
+            Car(UUID.randomUUID().toString(), "Opel Corsa", "2013", "Германия", "B", "Седан"),
+            Car(UUID.randomUUID().toString(), "BMW X6", "2017", "Германия", "S", "Внедорожник")
         )
     }
 

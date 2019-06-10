@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Справочник</string>
-    <string name="app_name_edit">Справочник: редактирование</string>
-    <string name="action_clear_list">Очистить</string>
-    <string name="action_delete_data">Сброс</string>
-    <string name="action_sort_button">Сортировка</string>
+    <string name="app_name_edit">Редактор</string>
+    <string name="action_default_data">Вернуть начальный список</string>
+    <string name="action_sort_by_model_button">Сортировать (по названию)</string>
+    <string name="action_sort_by_date_button">Сортировать (по году выпуска)</string>
+    <string name="action_save_button">Сохранить</string>
+    <string name="label_producer">Страна-производитель</string>
+    <string name="label_bodytype">Тип кузова</string>
+    <string name="label_year">Год выпуска</string>
+    <string name="label_class">Класс</string>
+
+    <string-array name="car_body_types">
+        <item>Седан</item>
+        <item>Хэтчбэк</item>
+        <item>Внедорожник</item>
+        <item>Кроссовер</item>
+        <item>Грузовик</item>
+    </string-array>
 
     <string-array name="car_classes">
         <item>A</item>

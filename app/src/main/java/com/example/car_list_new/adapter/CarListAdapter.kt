@@ -58,7 +58,7 @@ class CarListAdapter: RecyclerView.Adapter<CarListAdapter.ViewHolder>() {
     fun removeAt(position: Int) {
         items.removeAt(position)
         notifyItemRemoved(position)
-        notifyItemRangeChanged(position, items.size-position)/* Не обновлялись индексы элементов после удаленной */
+        notifyItemRangeChanged(position, items.size-position)
     }
 
     fun updateAt(index: Int, car: Car) {

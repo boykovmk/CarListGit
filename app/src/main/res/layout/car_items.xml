@@ -3,119 +3,147 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="160dp"
         android:id="@+id/card_view"
-        android:layout_margin="5dp"
-        card_view:cardBackgroundColor="#FFFFFF"
-        card_view:cardCornerRadius="10dp"
-        card_view:contentPadding="0dp" android:layout_marginTop="1dp" android:layout_marginBottom="1dp"
-        android:layout_marginRight="1dp" android:layout_marginLeft="1dp">
-    <TextView
-            android:text="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/carIndexTextView" android:textSize="20dp"
-            android:layout_marginTop="10dp" android:layout_marginLeft="6dp"/>
-    <TextView
-            android:id="@+id/carModelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="22dp"
-            android:text="carModelTextView"
-            android:textSize="18sp"
-            android:textColor="@color/colorPrimaryText" android:gravity="center_horizontal|top"
-            android:layout_marginTop="17dp"
-            android:textAllCaps="false"
-            android:typeface="sans" android:layout_marginLeft="100dp" android:layout_marginStart="16dp"
-            android:paddingLeft="10dp" android:paddingRight="10dp" android:lines="4"
-            android:textStyle="bold"/>
-    <TextView
-            android:text="S"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/carClassTextView"
-            android:textColor="@android:color/background_light"
-            android:textSize="20sp"
-            android:background="@color/colorPrimary"
-            android:gravity="center" android:layout_gravity="right|top"/>
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:contentPadding="4dp">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:background="@android:drawable/editbox_background_normal"
-            android:layout_marginTop="40dp" android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp" android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp">
         <TextView
-                android:text="1919"
                 android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/carClassTextView"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="12sp"
+                card_view:layout_constraintStart_toStartOf="@+id/carProducerTextView"
+                card_view:layout_constraintTop_toTopOf="@+id/classLabel"
+                card_view:layout_constraintBottom_toBottomOf="@+id/classLabel"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/carIndexTextView" android:textSize="16sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                card_view:layout_constraintBottom_toBottomOf="parent" android:textColor="@color/colorDivider"/>
+        <TextView
+                android:id="@+id/carModelTextView"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimaryText"
+                android:textAllCaps="false"
+                android:typeface="sans"
+                android:lines="1"
+                android:layout_marginTop="8dp"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                android:foreground="@android:drawable/divider_horizontal_textfield"
+                android:foregroundGravity="fill_horizontal|bottom" android:paddingLeft="20dp" android:gravity="top"/>
+        <TextView
                 android:id="@+id/carYearTextView"
-                android:textSize="14dp"
-                android:textColor="@color/colorSecondaryText"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimaryText"
                 android:textIsSelectable="false"
-                android:typeface="normal"
-                android:gravity="right|top" android:layout_gravity="right"
-                android:layout_marginStart="16dp"
-                card_view:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-                card_view:layout_constraintTop_toTopOf="parent"/>
+                card_view:layout_constraintBottom_toBottomOf="@+id/yearLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/yearLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                card_view:layout_constraintStart_toStartOf="@+id/carProducerTextView"/>
         <TextView
                 android:id="@+id/carIdTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="carIdTextView"
-                android:textSize="8sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorSecondaryText"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
-                android:textStyle="italic" android:layout_marginLeft="2dp" android:layout_marginStart="2dp"
                 android:visibility="invisible"/>
         <TextView
-                android:text="carBodyTypeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/carBodyTypeTextView"
                 android:textColor="@color/colorPrimaryText"
-                card_view:layout_constraintStart_toEndOf="@+id/imageView" android:layout_marginLeft="2dp"
-                android:layout_marginStart="2dp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/imageView" android:textSize="18sp"/>
+                android:textSize="12sp"
+                card_view:layout_constraintTop_toTopOf="@+id/bodyTypeLabel"
+                card_view:layout_constraintBottom_toBottomOf="@+id/bodyTypeLabel"
+                card_view:layout_constraintStart_toStartOf="@+id/carProducerTextView"/>
         <TextView
-                android:text="carProducerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/carProducerTextView"
                 android:textColor="@color/colorPrimaryText"
-                card_view:layout_constraintStart_toEndOf="@+id/imageView2" android:layout_marginLeft="2dp"
-                android:layout_marginStart="2dp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                android:textSize="18sp"
-        />
-        <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp" card_view:srcCompat="@mipmap/ic_car" android:id="@+id/imageView"
-                card_view:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                card_view:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="120dp"
-                android:layout_marginRight="120dp"/>
-        <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp" card_view:srcCompat="@mipmap/ic_flag"
-                android:id="@+id/imageView2"
-                android:layout_marginTop="8dp"
-                card_view:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp" card_view:layout_constraintVertical_bias="1.0"/>
-        <TextView
-                android:text="Страна"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
                 android:textSize="12sp"
-                card_view:layout_constraintStart_toEndOf="@+id/imageView2"
-                android:layout_marginLeft="2dp" android:layout_marginStart="2dp"
-                android:layout_marginTop="4dp" card_view:layout_constraintTop_toTopOf="@+id/imageView2"/>
+                card_view:layout_constraintBottom_toBottomOf="@+id/producerLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/producerLabel"
+                card_view:layout_constraintStart_toEndOf="@+id/producerLabel"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.128" card_view:layout_constraintVertical_bias="0.0"/>
+        <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp" card_view:srcCompat="@drawable/ic_bodytype"
+                android:id="@+id/bodyTypeIconImageView"
+                card_view:layout_constraintEnd_toStartOf="@+id/bodyTypeLabel"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/bodyTypeLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/bodyTypeLabel"/>
+        <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp" card_view:srcCompat="@drawable/ic_flag"
+                android:id="@+id/producerIconImageView"
+                card_view:layout_constraintEnd_toStartOf="@+id/producerLabel"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/producerLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/producerLabel" android:background="#20FFFFFF"/>
+        <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp" card_view:srcCompat="@drawable/ic_date"
+                android:id="@+id/dateIconImageView" card_view:layout_constraintEnd_toStartOf="@+id/yearLabel"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/yearLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/yearLabel"/>
+        <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp" card_view:srcCompat="@drawable/ic_class"
+                android:id="@+id/classIconImageView" card_view:layout_constraintEnd_toStartOf="@+id/classLabel"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/classLabel"
+                card_view:layout_constraintTop_toTopOf="@+id/classLabel"/>
         <TextView
-                android:text="Кузов"
+                android:text="@string/label_producer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2" android:layout_marginTop="4dp"
-                card_view:layout_constraintTop_toTopOf="@+id/imageView"
-                card_view:layout_constraintStart_toEndOf="@+id/imageView" android:layout_marginLeft="2dp"
-                android:layout_marginStart="2dp" android:textSize="12sp"/>
+                android:id="@+id/producerLabel"
+                android:textSize="12sp"
+                android:layout_marginTop="14dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/carModelTextView"
+                card_view:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="8dp" card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="8dp" card_view:layout_constraintHorizontal_bias="0.284"/>
+        <TextView
+                android:text="@string/label_bodytype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bodyTypeLabel"
+                android:textSize="12sp" android:layout_marginTop="2dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/producerLabel"
+                card_view:layout_constraintStart_toStartOf="@+id/producerLabel"/>
+        <TextView
+                android:text="@string/label_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/yearLabel" android:textSize="12sp"
+                android:layout_marginTop="2dp" card_view:layout_constraintTop_toBottomOf="@+id/bodyTypeLabel"
+                card_view:layout_constraintStart_toStartOf="@+id/bodyTypeLabel"
+        />
+        <TextView
+                android:text="@string/label_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classLabel" android:textSize="12sp"
+                android:layout_marginTop="2dp" card_view:layout_constraintTop_toBottomOf="@+id/yearLabel"
+                card_view:layout_constraintStart_toStartOf="@+id/yearLabel"
+        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

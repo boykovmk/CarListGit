@@ -5,21 +5,25 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".activity.MainActivity">
     <item
-            android:id="@+id/menuSortButton"
-            android:orderInCategory="51"
-            android:title="@string/action_sort_button"
-            android:onClick="onSortButtonTap"
-            app:showAsAction="never" android:icon="@android:drawable/ic_menu_sort_by_size"/>
+            android:id="@+id/menuSortByModelButton"
+            android:orderInCategory="50"
+            android:title="@string/action_sort_by_model_button"
+            android:onClick="onSortByModelButtonTap"/>
+    <item
+            android:id="@+id/menuSortByDateButton"
+            android:orderInCategory="50"
+            android:title="@string/action_sort_by_date_button"
+            android:onClick="onSortByDateButtonTap"/>
     <item
             android:id="@+id/menuDefaultCarsButton"
-            android:orderInCategory="51"
-            android:title="@string/action_clear_list"
-            android:onClick="onClearButtonTap"
+            android:orderInCategory="50"
+            android:title="@string/action_default_data"
+            android:onClick="onDefaultButtonTap"
             app:showAsAction="never"/>
     <item
-            android:id="@+id/menuDeleteButton"
-            android:orderInCategory="51"
-            android:title="@string/action_delete_data"
-            android:onClick="onDefaultButtonTap"
+            android:id="@+id/menuExitButton"
+            android:orderInCategory="50"
+            android:title="Выход"
+            android:onClick="onExitButtonTap"
             app:showAsAction="never"/>
 </menu>
